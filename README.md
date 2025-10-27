@@ -15,3 +15,66 @@
 #### Lombok
 #### (plus tard) MySQL Connector
 ### SGBD : H2 (puis MySQL)
+
+## 3. Étapes de réalisation
+### Étape 1 : Création du projet
+#### Le projet a été créé avec Spring Initializr en sélectionnant les dépendances :
+#### Spring Web
+#### Spring Data JPA
+#### H2 Database
+#### Lombok
+#### Le projet a ensuite été ouvert dans IntelliJ IDEA Ultimate.
+
+## Étape 2 : Création de l’entité JPA Product
+### Une classe Product a été créée dans le package entities, représentant un produit avec les attributs suivants :
+#### jee1 
+
+#### L’annotation @Data (Lombok) permet de générer automatiquement les getters, setters et constructeurs.
+
+## Étape 3 : Configuration de l’unité de persistance
+### Dans le fichier application.properties, la configuration pour la base H2 a été ajoutée :
+#### jee3
+
+#### Cela permet d’utiliser une base en mémoire, pratique pour les tests.
+
+## Étape 4 : Création du Repository
+### Une interface ProductRepository a été créée pour gérer les opérations CRUD :
+#### jee4 
+
+#### Cette interface hérite de JpaRepository, ce qui offre automatiquement les méthodes :
+#### save(), findAll(), findById(), deleteById()...
+
+## Étape 5 : Tests des opérations CRUD
+### Dans la classe principale StudentsAppApplication, quelques tests ont été effectués au démarrage de l’application :
+#### jee5
+
+### Les résultats apparaissent dans la console et la base H2 peut être consultée via :
+
+## Étape 6 : Migration vers MySQL
+#### Pour utiliser MySQL au lieu de H2, les dépendances et le fichier de configuration ont été modifiés :
+### Dépendance MySQL (dans pom.xml) 
+<img width="560" height="143" alt="jee6" src="https://github.com/user-attachments/assets/f522f550-6ffb-4a7c-b7b1-dc6a12a3ae77" />
+
+
+### Configuration MySQL (dans application.properties)
+#### jee7
+<img width="1422" height="192" alt="jee7" src="https://github.com/user-attachments/assets/2a5f0265-56cc-40b4-9e90-18266d37f654" />
+
+### L’application se connecte désormais à la base product_db sur MySQL et les données sont stockées de manière persistante.
+
+## 4. Résultats obtenus
+### L’application permet de :
+  #### Ajouter des produits
+  #### Consulter la liste de tous les produits
+  #### Chercher un produit par mot-clé
+  #### Modifier ou supprimer un produit
+  #### Afficher les produits en base H2 ou MySQL selon la configuration
+<img width="1817" height="871" alt="image" src="https://github.com/user-attachments/assets/4fb12bc6-1d13-47ec-92a6-ce0b21c28900" />
+
+## 5. Conclusion
+### Ce mini-projet a permis de comprendre le fonctionnement de Spring Boot avec Spring Data JPA, ainsi que la différence entre une base de données en mémoire (H2) et une base persistante (MySQL).
+### L’utilisation de Lombok et JPA Repository simplifie énormément le développement et rend le code plus clair et concis.
+
+
+
+
