@@ -3,7 +3,6 @@ package net.studentsapp;
 import net.studentsapp.entities.Product;
 import net.studentsapp.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,15 +13,12 @@ import java.util.List;
 public class StudentsAppApplication implements CommandLineRunner {
     @Autowired
     private ProductRepository productRepository;
-    public static void main(String[] args) {
-        SpringApplication.run(StudentsAppApplication.class, args);
-    }
-
     @Override
     public void run(String... args) throws Exception {
-        productRepository.save(new Product(null,"Computer",4300,3));
-        productRepository.save(new Product(null,"Printer",1200,4));
-        productRepository.save(new Product(null,"Smart Phone ",3200,32));
+        productRepository.save(new Product (null,"computer",4300,3));
+        productRepository.save(new Product (null,"Printer",1200,4));
+        productRepository.save(new Product (null,"Smart Phone",3200,32));
+        productRepository.findAll();
         List<Product> products = productRepository.findAll();
         products.forEach(p->{
             System.out.println(p.toString());
@@ -32,6 +28,30 @@ public class StudentsAppApplication implements CommandLineRunner {
         System.out.println(product.getId());
         System.out.println(product.getName());
         System.out.println(product.getQuantity());
-        System.out.println("********");
-        };
+        System.out.println("**********");
+        System.out.println("---------------------");
+        productRepository.findByNameContains("c");
+        List<Product> productsList = productRepository.findByNameContains("c");
+        productsList.forEach(p->{
+            System.out.println(p);
+        });
+        System.out.println("---------------------");
+        List<Product> productsList2 = productRepository.search("%c%");
+        productsList2.forEach(p->{
+            System.out.println(p);
+        });
+        System.out.println("---------------------");
+        List<Product> productsList3 = productRepository.searchByPrice(3000);
+        productsList3.forEach(p->{
+            System.out.println(p);
+        });
+
+    }
+
+
+    public static void main(String[] args) {
+        SpringApplication.run(StudentsAppApplication.class, args);
+    }
+
+
 }
