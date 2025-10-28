@@ -27,26 +27,27 @@
 
 ## Étape 2 : Création de l’entité JPA Product
 ### Une classe Product a été créée dans le package entities, représentant un produit avec les attributs suivants :
-#### jee1 
+<img width="1148" height="536" alt="jee 1" src="https://github.com/user-attachments/assets/a8f90427-32fe-46b1-8bda-9b607b291972" />
+
 
 #### L’annotation @Data (Lombok) permet de générer automatiquement les getters, setters et constructeurs.
 
 ## Étape 3 : Configuration de l’unité de persistance
 ### Dans le fichier application.properties, la configuration pour la base H2 a été ajoutée :
-#### jee3
+<img width="1210" height="376" alt="jee 3" src="https://github.com/user-attachments/assets/cd3d3583-ee6b-494d-94f9-af3999c4be3e" />
 
 #### Cela permet d’utiliser une base en mémoire, pratique pour les tests.
 
 ## Étape 4 : Création du Repository
 ### Une interface ProductRepository a été créée pour gérer les opérations CRUD :
-#### jee4 
+<img width="1021" height="83" alt="jee4" src="https://github.com/user-attachments/assets/16ff9dbb-1c79-44f4-a12d-fe6c4ca4b3a8" />
 
 #### Cette interface hérite de JpaRepository, ce qui offre automatiquement les méthodes :
 #### save(), findAll(), findById(), deleteById()...
 
 ## Étape 5 : Tests des opérations CRUD
 ### Dans la classe principale StudentsAppApplication, quelques tests ont été effectués au démarrage de l’application :
-#### jee5
+<img width="992" height="617" alt="jee5" src="https://github.com/user-attachments/assets/87180d74-92b9-47dc-9691-dc2eadee29fb" />
 
 ### Les résultats apparaissent dans la console et la base H2 peut être consultée via :
 
@@ -57,7 +58,6 @@
 
 
 ### Configuration MySQL (dans application.properties)
-#### jee7
 <img width="1422" height="192" alt="jee7" src="https://github.com/user-attachments/assets/2a5f0265-56cc-40b4-9e90-18266d37f654" />
 
 ### L’application se connecte désormais à la base product_db sur MySQL et les données sont stockées de manière persistante.
