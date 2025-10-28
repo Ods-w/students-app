@@ -13,7 +13,7 @@
 #### Spring Data JPA
 #### H2 Database
 #### Lombok
-#### (plus tard) MySQL Connector
+#### MySQL Connector
 ### SGBD : H2 (puis MySQL)
 
 ## 3. Étapes de réalisation
